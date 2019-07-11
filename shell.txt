@@ -1,0 +1,46 @@
+User.objects.create(first_name='Ryan', last_name='Baermann', email_address='fk@fk.fk', age='23')                              
+Out[2]: <User: User object>
+
+In [2]: User.objects.all()
+Out[2]: <QuerySet [<User object: Ryan Baermann fk@fk.fk 23>]>
+
+In [4]: User.objects.create(first_name='Cody', last_name='Baermann', email_address='hesucks@getrekt.com', age='27')                   
+Out[4]: <User object: Cody Baermann hesucks@getrekt.com 27>
+
+
+In [5]: User.objects.create(first_name='Rebecca', last_name='Baermann', email_address='beccamarie1506@gmail.com', age='21')           
+Out[5]: <User object: Rebecca Baermann beccamarie1506@gmail.com 21>
+
+
+In [6]: User.objects.all()
+Out[6]: <QuerySet [<User object: Ryan Baermann fk@fk.fk 23>, <User object: Cody Baermann hesucks@getrekt.com 27>, <User object: Rebecca Baermann beccamarie1506@gmail.com 21>]>
+
+
+In [7]: User.objects.last()
+Out[7]: <User object: Rebecca Baermann beccamarie1506@gmail.com 21>
+
+
+In [8]: User.objects.first()
+Out[8]: <User object: Ryan Baermann fk@fk.fk 23>
+
+
+In [9]: rb = User.objects.get(id=1)
+
+In [10]: cb = User.objects.get(id=2)
+
+In [11]: rmb = User.objects.get(id=3)
+
+
+In [12]: rmb.last_name = 'Pancakes' 
+
+
+In [14]: cb.delete()
+Out[14]: (1, {'users_app.User': 1})
+
+
+In [18]: User.objects.all().order_by('first_name')
+Out[18]: <QuerySet [<User object: Rebecca Baermann beccamarie1506@gmail.com 21>, <User object: Ryan Baermann fk@fk.fk 23>]>
+
+
+In [19]: User.objects.all().order_by('-first_name')
+Out[19]: <QuerySet [<User object: Ryan Baermann fk@fk.fk 23>, <User object: Rebecca Baermann beccamarie1506@gmail.com 21>]>
